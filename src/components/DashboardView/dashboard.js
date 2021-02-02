@@ -7,7 +7,6 @@ import Education from './education';
 
 const Dashboard = (props) => {
     const authEmail=props.match.params.email
-    console.log("AUTHEMAIL:",props.match.params.email)
     return (
         <Router>
             <div>

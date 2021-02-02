@@ -39,11 +39,11 @@ const useLogin=(validateInfo1,user)=>{
 
     useEffect(()=>{
         if(Object.keys(errors).length===0 && isSubmitting){
-            console.log("HELLO");
+            
             const data=JSON.parse(localStorage.getItem(values.email));
-            console.log("DATA:",data);
+            
             if(data && data.email==values.email && data.password==values.password){
-                console.log("Login Successfull...");
+                
                 // localStorage.setItem('isLogged',true);
                 data['isLogged']=true
                 let email=data['email'];
@@ -51,9 +51,9 @@ const useLogin=(validateInfo1,user)=>{
                 let link=`/dashboard/${email}`
                 history.push(link);
             }
-            console.log("Wrong Information...");
+            
         }   
-        console.log("USEEFFECT IS CALLED...:",user);
+        
     },[errors])
     
     return{values,handleChange,handleSubmit,errors};

@@ -19,7 +19,6 @@ const useStyles = makeStyles({
 export default function Details({email}) {
   const classes = useStyles();
   const data=JSON.parse(localStorage.getItem(email));
-  console.log("MAP DATA:",data);
   return (
     <TableContainer component={Paper}>
       <Table className={classes.table} aria-label="simple table">
