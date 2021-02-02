@@ -34,13 +34,6 @@ function App() {
               return <Dashboard {...props} />
             }
             return <Redirect to="/" />
-
-
-            // localStorage.getItem(props.match.params.email)=='true' ? (
-            //   <Dashboard />
-            // ) : (
-            //   <Redirect to="/" />
-            // )
           }
         }
         />

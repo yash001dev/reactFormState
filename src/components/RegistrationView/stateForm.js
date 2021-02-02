@@ -55,7 +55,6 @@ const useForm=(validateInfo1)=>{
 
     //Form Submit
     const handleSubmit=e=>{
-        console.log("Button is submit...");
         e.preventDefault();
         setErrors(validateInfo1(values));
         setIsSubmitting(true);
@@ -64,14 +63,12 @@ const useForm=(validateInfo1)=>{
 
     useEffect(()=>{
         if(Object.keys(errors).length===0 && isSubmitting){
-            console.log("NO ERROR...");
             values.id=Math.random()
             setUser([...user,values])
             // localStorage.setItem(values.email,JSON.stringify(values));
             handleNext();
            
         }
-        console.log("USEEFFECT IS CALLED...:",user);
     },[errors])
 
 

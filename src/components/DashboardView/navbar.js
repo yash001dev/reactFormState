@@ -7,7 +7,7 @@ import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import { useHistory } from "react-router-dom";
-import {Link,Redirect} from  'react-router-dom' 
+import {Link,Redirect,NavLink} from  'react-router-dom' 
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -48,9 +48,12 @@ export const Nav = ({email}) => {
             News
           </Typography>
           {/* <Link to='dashboard/home'> */}
-            <Button className={classes.button} component={Link} to={'/dashboard/home'} color="inherit">Home</Button>
-            <Button className={classes.button} component={Link} to={'/dashboard/details'} color="inherit">User Details</Button>
-            <Button className={classes.button} component={Link} to={'/dashboard/education'} color="inherit">User Education</Button>
+
+
+            
+            <NavLink className={classes.button}  to={'/dashboard/home'} color="inherit">Home</NavLink>
+            <NavLink className={classes.button}  to={'/dashboard/details'} color="inherit">User Education</NavLink>
+            <NavLink className={classes.button}  to={'/dashboard/education'} color="inherit">User Details</NavLink>
             <Button className={classes.button} color="inherit" onClick={()=>logOut()}>logOut</Button>
             {/* <a href='/'>LogOut</a> */}
           {/* </Link> */}

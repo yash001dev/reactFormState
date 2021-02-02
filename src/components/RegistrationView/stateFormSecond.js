@@ -61,7 +61,6 @@ const useForm2=(validateInfo2,email)=>{
 
     //Form Submit
     const handleSubmit2=e=>{
-        console.log("Button 2 is submit...");
         e.preventDefault();
         setErrors2(validateInfo2(values2));
         setIsSubmitting2(true);
@@ -81,7 +80,6 @@ const useForm2=(validateInfo2,email)=>{
             // handleNext();
            
         }
-        console.log("USEEFFECT IS CALLED...:",email);
     },[errors2])
 
 

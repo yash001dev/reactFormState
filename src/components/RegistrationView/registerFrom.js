@@ -16,7 +16,7 @@ import StepLabel from '@material-ui/core/StepLabel';
 // import Button from '@material-ui/core/Button';
 import { useHistory } from "react-router-dom";
 import Typography from '@material-ui/core/Typography';
-import { Link } from 'react-router-dom';
+import { Link,NavLink } from 'react-router-dom';
 import LoginInfoForm from '../../components/LoginView/logininfoform';
 import validateInfo1 from './validateInfo1';
 import validateInfo2 from './validateInfo2';
@@ -74,12 +74,8 @@ function RegisterFrom() {
 
   useEffect(()=>{
       if(Object.keys(errors2).length===0 && isSubmitting2){
-        console.log("NO ERROR...");
-        console.log("DATA1:",values);
-      console.log("DATA2:",values2);
       let mainData=Object.assign(values)
       mainData['otherDetails']=Object.assign(values2);
-      console.log("MAINDATA:",mainData);
         localStorage.setItem(values.email,JSON.stringify(mainData));
         history.push('/');
       }
@@ -90,7 +86,6 @@ function RegisterFrom() {
   return (
 
     <div className={classes.root}>
-      {console.log("ACTIVESTEP:", activeStep)}
       <Stepper activeStep={activeStep} alternativeLabel>
         {steps.map((label) => (
           <Step key={label}>
@@ -218,7 +213,6 @@ function RegisterFrom() {
                     
                     {values2.map(values2=>{
                       return <div key={values2.id}>
-                      {console.log("INITITAL STATE:",values2)}
                       <TextField
                         fullWidth
                         label="Institute"
