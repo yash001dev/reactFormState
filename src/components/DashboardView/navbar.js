@@ -24,6 +24,10 @@ const useStyles = makeStyles((theme) => ({
       background:'black',
     },
   },
+  navLink:{
+    padding:'10px 15px',
+    cursor:'pointer',
+  }
 }));
 
 export const Nav = ({email}) => {
@@ -51,9 +55,9 @@ export const Nav = ({email}) => {
 
 
             
-            <NavLink className={classes.button}  to={'/dashboard/home'} color="inherit">Home</NavLink>
-            <NavLink className={classes.button}  to={'/dashboard/details'} color="inherit">User Education</NavLink>
-            <NavLink className={classes.button}  to={'/dashboard/education'} color="inherit">User Details</NavLink>
+            <NavLink className={classes.navLink}  to={'/dashboard/home'} color="inherit">Home</NavLink>
+            <NavLink className={classes.navLink}  to={'/dashboard/details'} color="inherit">User Education</NavLink>
+            <NavLink className={classes.navLink}  to={'/dashboard/education'} color="inherit">User Details</NavLink>
             <Button className={classes.button} color="inherit" onClick={()=>logOut()}>logOut</Button>
             {/* <a href='/'>LogOut</a> */}
           {/* </Link> */}

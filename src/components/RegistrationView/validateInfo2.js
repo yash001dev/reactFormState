@@ -1,10 +1,11 @@
 export default function validateInfo1(values){
-    let errors={}
+    let errors=[];
     
-    values.map((value)=>{
-        
+    values.map((value,index)=>{
+        let error={}
+
         if(!value.institute){
-            errors.institute='Institute Name is Required...'
+            error.institute='Institute Name is Required...'
         }
     
         if(!value.percentage){
@@ -12,17 +13,26 @@ export default function validateInfo1(values){
         }
     
         if(!value.course){
-            errors.course="Course/Stream is Required..."
+            error.course="Course/Stream is Required..."
         }
     
         if(!value.start_date){
-            errors.start_date="Start Date Must Select"
+            error.start_date="Start Date Must Select"
         }
     
         if(!value.end_date){
-            errors.end_date="End Date Must Select"
+            error.end_date="End Date Must Select"
         }
-
+        // let date1=Date.parse(values.start_date);
+        // let date2=Date.parse(values.end_date);
+        console.log("DATE1:",new Date(value.start_date));
+        if ((new Date(value.start_date) > new Date(value.end_date))) {
+            error.end_date="Please Select Valid Date."
+            // set date error validation true 
+        } 
+        
+        errors.push(error);
     })
+    console.log("ERRRR:",errors);
     return errors;
 }

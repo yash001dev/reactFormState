@@ -23,8 +23,7 @@ const useForm2=(validateInfo2,email)=>{
     // const [activeStep,setActiveStep]=useState(1);
     // const steps=getSteps();
     const [isSubmitting2,setIsSubmitting2]=useState(false)
-    const [errors2,setErrors2]=useState({
-    })
+    const [errors2,setErrors2]=useState([]);
 
     //Method For Stepper Click
     // const handleNext=()=>{
@@ -61,12 +60,24 @@ const useForm2=(validateInfo2,email)=>{
 
     //Form Submit
     const handleSubmit2=e=>{
+        setIsSubmitting2(false);
         e.preventDefault();
-        setErrors2(validateInfo2(values2));
-        setIsSubmitting2(true);
+        setErrors2([]);
+        console.log("VALIDATION INFO:",validateInfo2(values2));
+        let errorTemp=validateInfo2(values2)
+        console.log("ITEM[0]:",errorTemp)
+        errorTemp.map(item=>{
+            console.log("ITEM:",item)
+            setErrors2(errors2=>errors2.concat(item))
+        })
+        
+       changeIsSubmitting();
         
     }
 
+    const changeIsSubmitting=()=>{
+        setIsSubmitting2(!isSubmitting2);
+    }
     const handleDateChange = (date) => {
         setValue2.start_date(date)
     };
@@ -75,9 +86,8 @@ const useForm2=(validateInfo2,email)=>{
     };
 
     useEffect(()=>{
+        console.log("LAST ERROR:",errors2)
         if(Object.keys(errors2).length===0 && isSubmitting2){
-           
-            // handleNext();
            
         }
     },[errors2])
@@ -96,13 +106,15 @@ const useForm2=(validateInfo2,email)=>{
     ])
     }
 
+    
+
 
 
 
     //For Educational Information
     
     
-    return{values2,handleChange2,handleSubmit2,handleDateChange,handleEndDateChange,handleAddFields,errors2,isSubmitting2};
+    return{values2,handleChange2,handleSubmit2,handleDateChange,handleEndDateChange,handleAddFields,errors2,isSubmitting2,changeIsSubmitting};
 }
 
 export default useForm2;

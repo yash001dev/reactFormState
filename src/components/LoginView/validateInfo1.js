@@ -6,11 +6,11 @@ export default function validateInfo1(values){
         errors.email="Email address is invalid"
     }
     
+    
     if(!values.password){
         errors.password="Password should Required"
     }
 
     
-
     return errors;
 }
