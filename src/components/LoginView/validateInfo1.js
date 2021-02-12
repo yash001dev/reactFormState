@@ -12,5 +12,6 @@ export default function validateInfo1(values){
     }
 
     
+    
     return errors;
 }

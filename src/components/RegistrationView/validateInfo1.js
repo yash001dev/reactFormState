@@ -29,6 +29,10 @@ export default function validateInfo1(values){
         errors.password="Password should Required"
     }
 
+    if(!/^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/.test(values.password)){
+        errors.password="Password should Required 8 letter, with at least a symbol,upper and lower case letters and a number"
+    }
+
     if(!values.confirmPassword){
         errors.confirmPassword="Confirm Password Should Required"
     }else if(!(values.password===values.confirmPassword)){
